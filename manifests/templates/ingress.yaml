@@ -1,0 +1,21 @@
+---
+# Source: helm for kubernetes/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: knath-e1aa7e7c                  # Ingress name
+  labels:
+    app: knath-e1aa7e7c
+spec:
+  ingressClassName: nginx   # Optional ingressClass
+  rules:
+    - host: "knath-e1aa7e7c.smartops.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: knath-e1aa7e7c               # Links to Service name dynamically
+                port:
+                  number: 8080  # Links to service port dynamically
