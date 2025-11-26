@@ -1,0 +1,26 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: knath-e1aa7e7c
+  labels:
+    app: knath-e1aa7e7c
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: knath-e1aa7e7c
+  template:
+    metadata:
+      labels:
+        app: knath-e1aa7e7c
+    spec:
+      serviceAccountName: ingress-manager
+      containers:
+        - name: knath-e1aa7e7c
+          image: docker.io/phengbunath/knath-e1aa7e7c:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
